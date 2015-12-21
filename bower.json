@@ -1,0 +1,24 @@
+{
+  "name": "projKalendarzSass",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "lukasikp <lukasik.paulina@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  },
+  "devDependencies": {
+    "font-awesome": "~4.5.0"
+  }
+}

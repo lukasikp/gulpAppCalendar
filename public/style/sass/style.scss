@@ -1,0 +1,61 @@
+// ****************************** colors ****************************
+
+$basic-font-color: #505050;
+$header-font-color: #000020;
+$brightest-font-color: #EDEDF2;
+
+$basic-border-color: #7D7D82;
+
+$basic-background: #ffffff;
+$border-background: #E0E0E0;
+$border-darken-barkcground: #d0d0d0;
+
+$accent-color: #000020;
+
+//********************************helpers*****************************
+
+@mixin border-table {
+	border: 2px solid $basic-border-color;
+	background-color: $border-background;
+}
+
+@mixin center-text{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+@mixin absolute-position ($top, $right){
+	position: absolute;
+	top: $top;
+	left: $right;
+}
+
+//********************************style********************************
+body{
+	@include center-text;
+	background-color: $basic-background;
+}
+
+#calendar {
+	width: 70%;
+	max-width: 1000px;
+	min-width: 700px;
+	@include center-text;
+	margin-top: 100px;
+	td {
+		@include border-table;
+		width: 14,2857143%;
+		height: 100px;
+	}
+	tbody td {
+		vertical-align: top;
+	}
+}
+
+.fa {
+	display: block;
+	text-align: right;
+	margin: 5px;
+	color: $accent-color; 
+	font-size: 20px;
+}
