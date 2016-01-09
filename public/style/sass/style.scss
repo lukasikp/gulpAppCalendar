@@ -2,15 +2,15 @@
 
 $basic-font-color: #505050;
 $header-font-color: #000020;
-$brightest-font-color: #EDEDF2;
+$brightest-font-color: #fff;
 
 $basic-border-color: #7D7D82;
 
-$basic-background: #ffffff;
+$basic-background: #000;
 $border-background: #E0E0E0;
 $border-darken-barkcground: #d0d0d0;
 
-$accent-color: #000020;
+$accent-color: #b5aa36;
 
 //********************************helpers*****************************
 
@@ -30,17 +30,73 @@ $accent-color: #000020;
 	left: $right;
 }
 
+@mixin headers ($font-size, $color, $font-family){
+	color: $color;
+	font-size: $font-size;
+	font-family: $font-family;	
+}
+
+@mixin buttons ($bg-color, $font-color){
+	padding: 5px 15px;
+	background-color: $bg-color;
+	color: $font-color;
+	border-radius: 5px;
+}
+
 //********************************style********************************
 body{
 	@include center-text;
+}
+#calendar-container {
 	background-color: $basic-background;
+	width: 80%;
+	min-width: 750px;
+	max-width: 1000px;
+	@include center-text;
+	padding: 20px 0;
+}
+#calendar-header{
+	width: 90%;
+	@include center-text;
+}
+#year{
+	@include headers (40px, $accent-color, 'Fjalla One');
+	display: inline;
+	position:relative;
+	letter-spacing: 5px;
+	padding: 3px 30px;
+	
+	border-bottom: 2px solid #fff;
 }
 
+#month{
+	text-align: left;
+	@include headers (100px, $brightest-font-color, 'Fjalla One');
+	font-style: uppercase;
+	letter-spacing: 5px;
+}
+.change-month{ 
+	text-align: left;
+	display: inline-block;
+	width: 49%;
+	font-size: 30px;
+}
+.icon-prev {
+	text-align: left;
+
+}
+.icon-next {
+	text-align: right;
+}
+
+#day-message{
+	font-family: 'Open Sans';
+	font-size: 18px;
+	color: $brightest-font-color;
+}
 #calendar {
-	width: 70%;
-	max-width: 1000px;
-	min-width: 700px;
 	@include center-text;
+	width: 90%;
 	margin-top: 100px;
 	td {
 		@include border-table;
@@ -54,8 +110,18 @@ body{
 
 .fa {
 	display: block;
-	text-align: right;
 	margin: 5px;
 	color: $accent-color; 
+
+}
+.icon-add-event{
+	text-align: right;	
 	font-size: 20px;
 }
+
+
+hr {
+	margin: 5px 0;
+	border-top: 4px solid $brightest-font-color;
+}
+

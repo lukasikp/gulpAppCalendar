@@ -1,19 +1,24 @@
 $(document).ready(function(){
 
-
+//kalendarz
 	var cal = new Calendar(1);
-
 	var today = new Date();
-	var year = today.getFullYear();    /// nie wyswietlaja sie alerty
+	var year = today.getFullYear();    
 	var month = today.getMonth();
+
 
 
 	var fullMonth = cal.monthDays(year, month);
 
+
 //naglowek kalendarza - nazwa miesiaca / tygodnia
-	var nameMonth = ['Styczeń','Luty','Marzec','Kwiecień',
-		'Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];	
-	$('#calendar').append('<thead><td colspan="7">'+nameMonth[month]+'</td></thead>');
+	var nameMonth = ['Sty.','Lut.','Mar.','Kwi.',
+		'Maj','Cze.','Lip.','Sie.','Wrz.','Paz.','Lis.','Gru.'];	
+	var headerMonthYear = function(){
+		$('#month').html(nameMonth[month]);
+		$('#year').html(year);
+	}
+	headerMonthYear();
 	
 	var nameWeek = ['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela'];
 	nameWeek.forEach(function (day){
@@ -21,10 +26,9 @@ $(document).ready(function(){
 	});
 
 
-
-
 // glowna tablica kalendarza
-	var htmlCalendar = "";
+	var eventCalendar = function () {
+		var htmlCalendar = "";
 	for (i=0; i<fullMonth.length; i++){
 		htmlCalendar = htmlCalendar + "<tr>";
 		for (j=0; j<7; j++){
@@ -36,10 +40,41 @@ $(document).ready(function(){
 		};
 		htmlCalendar = htmlCalendar + "<tr>";
 	};
-	$('#calendar').append(htmlCalendar);
+		$('#calendar').html(htmlCalendar);
+		//komórka kalendarza
+		var calendarButtons = 
+		'<i class="button-plus-event fa fa-plus-circle icon-add-event" data-toggle="modal" data-target="#event-plus"></i>';
+		$("tbody td").not('.empty').prepend(calendarButtons);
+	}
 
-//komórka kalendarza
-	var calendarButtons = '<i class="fa fa-plus-circle"></i>'
-	$("tbody td").not('.empty').prepend(calendarButtons);
+	eventCalendar();
+	
 
+	//zmiana miesięcy w kalendarzu
+	function changeMonth (){
+		$(".icon-prev").on("click",function(){
+			month--;
+			if (month==0){
+				month = 11;
+				year--
+			}
+			fullMonth = cal.monthDays(year, month);
+			eventCalendar();
+			headerMonthYear();
+		});
+		$(".icon-next").on("click",function(){
+			month++;
+			if (month==12){
+				month = 0;
+				year++
+			}
+			fullMonth = cal.monthDays(year, month);
+			eventCalendar();
+			headerMonthYear();
+		});	
+	};
+	changeMonth();
+
+	
 });
+

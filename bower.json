@@ -16,7 +16,11 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "openSans": "https://google-fonts.azurewebsites.net/googleFonts/openSans?family=Open+Sans:400,600",
+    "css": "https://fonts.googleapis.com/css?family=Archivo+Black",
+    "ArchivoBlack": "https://google-fonts.azurewebsites.net/googleFonts/ArchivoBlack?family=Archivo+Black",
+    "fjallaOne": "https://google-fonts.azurewebsites.net/googleFonts/fjallaOne?family=Fjalla+One"
   },
   "devDependencies": {
     "font-awesome": "~4.5.0"

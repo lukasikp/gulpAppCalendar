@@ -50,6 +50,8 @@ gulp.task('styles', function() {
     app.addStyle([
         config.bowerDir+'/bootstrap/dist/css/bootstrap.css',
         config.bowerDir+'/font-awesome/css/font-awesome.css',
+        config.bowerDir+'/openSans/openSans.css',
+        config.bowerDir+'/fjallaOne/fjallaOne.css',
         config.assetsDir+'/sass/layout.scss', 
         config.assetsDir+'/sass/style.scss'
         ], 'main.css');
@@ -64,6 +66,7 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
     app.addScript([
         config.bowerDir+'/jquery/dist/jquery.js',
+        config.bowerDir+'/bootstrap/dist/js/bootstrap.js',
         config.scriptsDir+'/main.js'
     ], 'site.js')
 });
@@ -73,6 +76,14 @@ gulp.task('scripts', function() {
 gulp.task('fonts', function() {
     app.copy(
         config.bowerDir+'/font-awesome/fonts/*',
+        'public/fonts'
+    );
+    app.copy(
+        config.bowerDir+'/fjallaOne/**/*.ttf',
+        'public/fonts'
+    );
+    app.copy(
+        config.bowerDir+'/openSans/**/*.ttf',
         'public/fonts'
     );
 });
