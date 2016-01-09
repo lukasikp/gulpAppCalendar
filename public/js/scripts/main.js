@@ -35,16 +35,16 @@ $(document).ready(function(){
 			if (fullMonth[i][j]==0) {
 				htmlCalendar = htmlCalendar +"<td class='empty'></td>";
 			}else{
-				htmlCalendar = htmlCalendar +"<td>"+fullMonth[i][j]+"</td>";
+				htmlCalendar = htmlCalendar +"<td><p class='dayNumber'>"+fullMonth[i][j]+"</p></td>";
 			};	
 		};
 		htmlCalendar = htmlCalendar + "<tr>";
 	};
-		$('#calendar').html(htmlCalendar);
+		$('#calendar tbody').html(htmlCalendar);
 		//komórka kalendarza
 		var calendarButtons = 
-		'<i class="button-plus-event fa fa-plus-circle icon-add-event" data-toggle="modal" data-target="#event-plus"></i>';
-		$("tbody td").not('.empty').prepend(calendarButtons);
+		'<p class="icon-add-event"><i class="button-plus-event fa fa-plus-circle" data-toggle="modal" data-target="#event-plus"></i></p>';
+		$("tbody td").not('.empty').append(calendarButtons);
 	}
 
 	eventCalendar();
