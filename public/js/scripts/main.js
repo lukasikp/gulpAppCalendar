@@ -17,7 +17,7 @@ $(document).ready(function(){
 	var headerMonthYear = function(){
 		$('#month').html(nameMonth[month]);
 		$('#year').html(year);
-	}
+	};
 	headerMonthYear();
 	
 	var nameWeek = ['Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota','Niedziela'];
@@ -29,18 +29,20 @@ $(document).ready(function(){
 // glowna tablica kalendarza
 	var eventCalendar = function () {
 		var htmlCalendar = "";
-	for (i=0; i<fullMonth.length; i++){
-		htmlCalendar = htmlCalendar + "<tr>";
-		for (j=0; j<7; j++){
-			if (fullMonth[i][j]==0) {
-				htmlCalendar = htmlCalendar +"<td class='empty'></td>";
-			}else{
-				htmlCalendar = htmlCalendar +"<td><p class='dayNumber'>"+fullMonth[i][j]+"</p></td>";
-			};	
+		for (i=0; i<fullMonth.length; i++){
+			htmlCalendar = htmlCalendar + "<tr>";
+			for (j=0; j<7; j++){
+				if (fullMonth[i][j]==0) {
+					htmlCalendar = htmlCalendar +"<td class='empty'></td>";
+				}else{
+					var dataElements = ' data-year="'+ year +'" data-month="' + month + '" data-day="' + fullMonth[i][j] + '"';
+					htmlCalendar = htmlCalendar +"<td"+ dataElements +"><p class='dayNumber'>"+fullMonth[i][j]+"</p></td>";
+				};	
+			};
+			htmlCalendar = htmlCalendar + "<tr>";
 		};
-		htmlCalendar = htmlCalendar + "<tr>";
-	};
 		$('#calendar tbody').html(htmlCalendar);
+
 		//komórka kalendarza
 		var calendarButtons = 
 		'<p class="icon-add-event"><i class="button-plus-event fa fa-plus-circle" data-toggle="modal" data-target="#event-plus"></i></p>';
@@ -54,7 +56,7 @@ $(document).ready(function(){
 	function changeMonth (){
 		$(".icon-prev").on("click",function(){
 			month--;
-			if (month==0){
+			if (month==-1){
 				month = 11;
 				year--
 			}
