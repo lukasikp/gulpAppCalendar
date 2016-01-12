@@ -1,0 +1,23 @@
+{"events":[
+		{
+		"date":"05-01-2016",
+		"time":"9:00",
+		"name":"spotkanie z klientem nr 1",
+		"description":"spotkanie z klientem nr 1",
+		"important":true
+		},
+		{
+		"date":"21-01-2016",
+		"time":"9:00",
+		"name":"sprzedazowe spotkanie",
+		"description":"sprzedazowe spotkanie"
+		},
+		{
+		"date":"21-12-2015",
+		"time":"9:00",
+		"name":"sprzedazowe spotkanie cz.1",
+		"description":"sprzedazowe spotkanie cz.1"
+		}
+
+	]
+}

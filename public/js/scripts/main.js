@@ -7,7 +7,6 @@ $(document).ready(function(){
 	var month = today.getMonth();
 
 
-
 	var fullMonth = cal.monthDays(year, month);
 
 
@@ -25,7 +24,6 @@ $(document).ready(function(){
 		$('#calendar thead').append('<td>'+day+'</td>');	
 	});
 
-
 // glowna tablica kalendarza
 	var eventCalendar = function () {
 		var htmlCalendar = "";
@@ -35,8 +33,20 @@ $(document).ready(function(){
 				if (fullMonth[i][j]==0) {
 					htmlCalendar = htmlCalendar +"<td class='empty'></td>";
 				}else{
-					var dataElements = ' data-year="'+ year +'" data-month="' + month + '" data-day="' + fullMonth[i][j] + '"';
-					htmlCalendar = htmlCalendar +"<td"+ dataElements +"><p class='dayNumber'>"+fullMonth[i][j]+"</p></td>";
+					//zamiana daty na string - dodanie elementu data-eventDate
+					var monthString = (month + 1).toString();
+					var dayString = (fullMonth[i][j]).toString();
+					var yearString = year.toString();
+					 if (monthString.length == 1){
+					 	monthString = "0"+monthString;
+					 } 
+					 if (dayString.length == 1 && dayString!=="0"){
+					 	dayString = "0"+ dayString;
+					 } 
+					var eventDate = dayString+"-"+monthString+"-"+yearString;
+					
+					var dataElement = 'data-eventDate="'+eventDate+'"';
+					htmlCalendar = htmlCalendar +"<td "+ dataElement +"><p class='dayNumber'>"+fullMonth[i][j]+"</p></td>";
 				};	
 			};
 			htmlCalendar = htmlCalendar + "<tr>";
@@ -48,9 +58,30 @@ $(document).ready(function(){
 		'<p class="icon-add-event"><i class="button-plus-event fa fa-plus-circle" data-toggle="modal" data-target="#event-plus"></i></p>';
 		$("tbody td").not('.empty').append(calendarButtons);
 	}
-
 	eventCalendar();
 	
+
+	//utworzone wydarzenia, pobranie pliku json
+
+	var appointments = function (){
+		$.getJSON('public/js/addEvent.json',function(data){
+			var events = data.events;
+			var oneEvent = '';
+			$.each(events, function(i,v){
+				var iventDate = v.date;
+				var iventName = v.name;
+				var iventDescription = v.description;
+				var iventImportant = v.important;
+				$('td[data-eventdate="'+iventDate+'"]').append("<p class='eventRow'>"+iventName+"</p>");
+				
+				var tekst = "<p>"+iventDate+"</p>";
+				
+			});
+		});
+
+	};
+	appointments();
+
 
 	//zmiana miesięcy w kalendarzu
 	function changeMonth (){
@@ -63,6 +94,7 @@ $(document).ready(function(){
 			fullMonth = cal.monthDays(year, month);
 			eventCalendar();
 			headerMonthYear();
+			appointments();
 		});
 		$(".icon-next").on("click",function(){
 			month++;
@@ -73,6 +105,7 @@ $(document).ready(function(){
 			fullMonth = cal.monthDays(year, month);
 			eventCalendar();
 			headerMonthYear();
+			appointments();
 		});	
 	};
 	changeMonth();
