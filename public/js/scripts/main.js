@@ -69,12 +69,17 @@ $(document).ready(function(){
 			var oneEvent = '';
 			$.each(events, function(i,v){
 				var iventDate = v.date;
+				var iventTime = v.time;
 				var iventName = v.name;
 				var iventDescription = v.description;
 				var iventImportant = v.important;
-				$('td[data-eventdate="'+iventDate+'"]').append("<p class='eventRow'>"+iventName+"</p>");
-				
-				var tekst = "<p>"+iventDate+"</p>";
+				var tekst
+				if (iventImportant == true){
+					tekst ="<p class='eventRowImportant'><span class='eventRowTime'>"+iventTime+" </span><span class='eventRowName'>"+iventName+"</span></p>";
+				}else{
+				tekst ="<p class='eventRow'><span class='eventRowTime'>"+iventTime+" </span><span class='eventRowName'>"+iventName+"</span></p>";
+				}
+				$('td[data-eventdate="'+iventDate+'"]').append(tekst);
 				
 			});
 		});

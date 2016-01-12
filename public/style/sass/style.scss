@@ -139,6 +139,7 @@ body{
 	padding: 5px 0 5px 15px;
 	display: inline-block;
 	width: 49%;
+	margin-bottom: 0;
 }
 .fa {
 	display: block;
@@ -152,6 +153,7 @@ body{
 	font-size: 20px;
 	display: inline-block;
 	width: 49%;
+	margin-bottom: 0;
 }
 
 
@@ -160,3 +162,18 @@ hr {
 	border-top: 4px solid $brightest-font-color;
 }
 
+//komórki tabeli - spotkania
+ .eventRowImportant, .eventRow {
+ 	@include headers (10px, $brightest-font-color);
+ 	border-radius: 6px;
+ 	margin-bottom: 3px;
+ }
+ .eventRowImportant{
+ 	background-color: $accent-color-second;
+ }
+ .eventRow{
+ 	background-color: $accent-color;
+ }
+ .eventRowTime {
+ 	font-weight: 600;
+ }

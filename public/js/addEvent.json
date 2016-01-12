@@ -3,20 +3,42 @@
 		"date":"05-01-2016",
 		"time":"9:00",
 		"name":"spotkanie z klientem nr 1",
+		"place":"gabinet 33",
 		"description":"spotkanie z klientem nr 1",
+		"status":"umówione",
 		"important":true
+		},
+		{
+		"date":"05-01-2016",
+		"time":"9:00",
+		"name":"spotkanie z klientem nr 2",
+		"place":"gabinet 33",
+		"description":"spotkanie z klientem nr 1",
+		"status":"umówione"
+		},
+		{
+		"date":"05-01-2016",
+		"time":"9:00",
+		"name":"spotkanie z klientem nr 2",
+		"place":"gabinet 33",
+		"description":"spotkanie z klientem nr 1",
+		"status":"umówione"
 		},
 		{
 		"date":"21-01-2016",
 		"time":"9:00",
 		"name":"sprzedazowe spotkanie",
-		"description":"sprzedazowe spotkanie"
+		"place":"gabinet 33",
+		"description":"sprzedazowe spotkanie",
+		"status":"planowane"
 		},
 		{
 		"date":"21-12-2015",
 		"time":"9:00",
 		"name":"sprzedazowe spotkanie cz.1",
-		"description":"sprzedazowe spotkanie cz.1"
+		"place":"gabinet 33",
+		"description":"sprzedazowe spotkanie cz.1",
+		"status":"umówione"
 		}
 
 	]
