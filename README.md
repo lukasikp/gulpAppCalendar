@@ -9,6 +9,9 @@ You'll need the following software installed to get started.
 * [Gulp](http://gulpjs.com/) `[sudo] npm install -g gulp`
 * [Bower](http://bower.io) `[sudo] npm install -g bower`
 
+## Local Installation
 
+*Clone this repository
+*Inside the directory, run `npm install`.
 
 
