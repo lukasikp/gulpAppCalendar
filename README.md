@@ -11,7 +11,7 @@ You'll need the following software installed to get started.
 
 ## Local Installation
 
-*Clone this repository
-*Inside the directory, run `npm install`.
+* Clone this repository
+* Inside the directory, run `npm install`.
 
 
